@@ -13,13 +13,15 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    public Vida objLife;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         Submarino s1 = new Submarino();
-        addObject(s1,50,300);
+        addObject(s1,50,50);
         crearPeces(10); 
+        objLife = new Vida();
     }
     
     public void crearPeces(int numero){

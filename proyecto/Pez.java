@@ -29,6 +29,14 @@ if(getY()>=m.getHeight()-5||getY()<=5){
     }
 
 }
+
+    Actor Submarino =getOneObjectAtOffset(0,0,Submarino.class);
+    if(Submarino!=null){
+        MyWorld myworld = (MyWorld)getWorld();
+        getWorld().removeObject(Submarino);
+        myworld.objLife.Disminuir();
+        getWorld().addObject(new Submarino(),50,300);
+    }
 }
 }   
 

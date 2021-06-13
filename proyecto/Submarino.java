@@ -15,13 +15,9 @@ public class Submarino extends Actor
         
          public void Submarino(){
         }
-    /**
-     * Act - do whatever the submarino wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+        
     public void act() 
     {
-        // Add your action code here.
         if(Greenfoot.isKeyDown("up")){
                 setDireccion(UP);
             }

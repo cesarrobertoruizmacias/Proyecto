@@ -34,8 +34,11 @@ if(getY()>=m.getHeight()-5||getY()<=5){
     if(Submarino!=null){
         MyWorld myworld = (MyWorld)getWorld();
         getWorld().removeObject(Submarino);
-        myworld.objLife.Disminuir();
+        myworld.vidas.decrementar();
         getWorld().addObject(new Submarino(),50,300);
+        if(myworld.vidas.obtenerValor()==0){
+        Greenfoot.setWorld(new GameOver());    
+        }
     }
 }
 }   

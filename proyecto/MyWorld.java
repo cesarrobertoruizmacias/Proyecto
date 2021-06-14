@@ -14,14 +14,22 @@ public class MyWorld extends World
      * 
      */
     public Vida objLife;
+    Hud puntos;
+    Hud vidas;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        setPaintOrder(Hud.class,Pez.class,Submarino.class);
         Submarino s1 = new Submarino();
         addObject(s1,50,50);
-        crearPeces(10); 
+        crearPeces(9); 
         objLife = new Vida();
+        puntos = new Hud(0,"Score:");
+        vidas = new Hud(3,"Vidas:");
+        addObject(puntos, 150, 85);
+        addObject(vidas, 300, 85);
+        
     }
     
     public void crearPeces(int numero){
@@ -32,4 +40,7 @@ public class MyWorld extends World
             addObject(p,x,y);
         }
     }
+    
+
+    
 }

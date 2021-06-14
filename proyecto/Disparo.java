@@ -49,11 +49,22 @@ public class Disparo extends Actor
             getWorld().removeObject(Pez);
             if(myworld.puntos.obtenerValor()%10==9)
             {
-              Greenfoot.setWorld(new Menu());
+              Greenfoot.setWorld(new Nivel2());
             }
              
         }
          
+        Actor Tiburon=getOneObjectAtOffset(0,0,Tiburon.class);
+        if(Tiburon!=null){            
+            Nivel2 N2=(Nivel2)getWorld();
+            getWorld().removeObject(Tiburon);
+            N2.puntos.incrementar();
+            if(N2.puntos.obtenerValor()%10 == 5)
+            {
+              Greenfoot.setWorld(new Menu());
+            }
+             
+        }
         if((getX()>=getWorld().getWidth()-5) || (getX()<=5)){
         getWorld().removeObject(this);
         }

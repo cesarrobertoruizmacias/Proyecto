@@ -8,74 +8,88 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Disparo extends Actor
 {
-    
-    int arregloImagen=1;
-    int velocidadDisparo=6;
-    int position;
-        
+
+    private int arregloImagen=1;
+    private int velocidadDisparo=6;
+    private int position;
+    private int vidaMega = 0;
+
     public Disparo(int direction) 
     {
         position = direction; 
     }  
-    
+
     public void act(){
         setImage("misil"+arregloImagen+".png");
         switch(position){
             case 0:
-                setLocation(getX(),getY()-velocidadDisparo);
+            setLocation(getX(),getY()-velocidadDisparo);
             break;
-            
+
             case 1:
-                setLocation(getX(),getY()+velocidadDisparo);
+            setLocation(getX(),getY()+velocidadDisparo);
             break;
-            
+
             case 2:
-                setLocation(getX()+velocidadDisparo, getY());
+            setLocation(getX()+velocidadDisparo, getY());
             break;
-            
+
             case 3:
-                setLocation(getX()-velocidadDisparo, getY());
+            setLocation(getX()-velocidadDisparo, getY());
             break;
-    }
-    
-          Actor Pez=getOneObjectAtOffset(0,0,Pez.class);
+        }
+
+        Actor Pez=getOneObjectAtOffset(0,0,Pez.class);
         Submarino boss=(Submarino)getOneIntersectingObject(Submarino.class);
         if(Pez!=null){
-            
-            MyWorld myworld=(MyWorld)getWorld();
-            //System.out.println(myworld.puntos.obtenerValor()%10 + "puntos");
-            myworld.puntos.incrementar();
-            //myworld.crearPeces(1);
+
+            Nivel1 nivel1=(Nivel1)getWorld();
+            nivel1.puntos.incrementar();
             getWorld().removeObject(Pez);
-            if(myworld.puntos.obtenerValor()%10==9)
+            if(nivel1.puntos.obtenerValor()%10==9)
             {
-              Greenfoot.setWorld(new Nivel2());
+                Greenfoot.setWorld(new Nivel2());
             }
-             
         }
-         
+
         Actor Tiburon=getOneObjectAtOffset(0,0,Tiburon.class);
         if(Tiburon!=null){            
-            Nivel2 N2=(Nivel2)getWorld();
+            Nivel2 nivel2=(Nivel2)getWorld();
             getWorld().removeObject(Tiburon);
-            N2.puntos.incrementar();
-            if(N2.puntos.obtenerValor()%10 == 5)
+            nivel2.puntos.incrementar();
+            if(nivel2.puntos.obtenerValor()%10 == 5)
             {
-              Greenfoot.setWorld(new Menu());
+                Greenfoot.setWorld(new Nivel3());
             }
-             
+
         }
+
+        Actor Megalodon=getOneObjectAtOffset(0,0,Megalodon.class);
+        if(Megalodon!=null){    
+            Nivel3 nivel3=(Nivel3)getWorld();
+
+            nivel3.puntos.incrementar();
+
+            nivel3.vidaMega.decrementar();
+
+            if(nivel3.puntos.obtenerValor() == 1000)
+            {
+                getWorld().removeObject(Megalodon);
+            }
+
+        }
+
         if((getX()>=getWorld().getWidth()-5) || (getX()<=5)){
-        getWorld().removeObject(this);
-        }
-        else{
-        if((getY()>=getWorld().getHeight()-5)||(getY()<=5)){
             getWorld().removeObject(this);
         }
-        else
-        if(arregloImagen<16)
-        arregloImagen++;
+        else{
+            if((getY()>=getWorld().getHeight()-5)||(getY()<=5)){
+                getWorld().removeObject(this);
+            }
+            else
+            if(arregloImagen<16)
+                arregloImagen++;
         }
-    
-}
+
+    }
 }

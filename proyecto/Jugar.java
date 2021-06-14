@@ -16,7 +16,7 @@ public class Jugar extends Button
     {
         if (Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new MyWorld());
+            Greenfoot.setWorld(new Nivel1());
         }
     }    
 }

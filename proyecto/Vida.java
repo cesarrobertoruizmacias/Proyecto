@@ -12,17 +12,17 @@ public class Vida extends Actor
      * Act - do whatever the lifes wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int c=3;
+    int counter=3;
     public Vida(){
     }
-    
+
     public void Disminuir()
     {
-         c--;
-         if(c==0)
+        counter--;
+        if(counter==0)
         {
             Greenfoot.setWorld(new GameOver());
         }
-        
+
     }    
 }

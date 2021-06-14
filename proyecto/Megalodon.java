@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Tiburon extends Actor
+public class Megalodon extends Actor
 {
     /**
      * Act - do whatever the pez wants to do. This method is called whenever
@@ -14,7 +14,7 @@ public class Tiburon extends Actor
      */
     public void act() 
     {
-        move(4);
+        move(5);
         World m=getWorld();
         if(getX()>=m.getWidth()-5||getX()<=5){
             turn(180);
@@ -32,13 +32,14 @@ public class Tiburon extends Actor
 
         Actor Submarino =getOneObjectAtOffset(0,0,Submarino.class);
         if(Submarino!=null){
-            Nivel2 N2 = (Nivel2)getWorld();
+            Nivel3 nivel3 = (Nivel3)getWorld();
             getWorld().removeObject(Submarino);
-            N2.vidas.decrementar();
+            nivel3.vidas.decrementar();
             getWorld().addObject(new Submarino(),50,300);
-            if(N2.vidas.obtenerValor()==0){
+            if(nivel3.vidas.obtenerValor()==0){
                 Greenfoot.setWorld(new GameOver());    
             }
         }
     }
 }   
+

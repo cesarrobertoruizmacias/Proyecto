@@ -46,6 +46,7 @@ public class Submarino extends Actor
             Disparo s1 = new Disparo(direction);
             getWorld().addObject(s1,getX(),getY());
             disparo=false;
+            Greenfoot.playSound("misil.wav");
         }
         if(!disparo && !Greenfoot.isKeyDown("X"))
         {

@@ -30,10 +30,11 @@ public class Nivel3 extends World
         vidas = new Hud(3,"Vidas:");
         vidaMega = new Hud(985, "Vida Megalodon: ");
         addObject(puntos, 150, 85);
-        addObject(vidas, 300, 85);
-        addObject(vidaMega,450, 85);
+        addObject(vidas, 150, 550);
+        addObject(vidaMega,550, 550);
 
     }
+
     public void crearMegalodon(int numero){
         for(int i=0; i <numero;i++){
             Megalodon megalodon = new Megalodon();

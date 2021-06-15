@@ -8,11 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Score extends World
 {
-
-    /**
-     * Constructor for objects of class MyWorldScore.
-     * 
-     */
     public Score()
     {    
         super(600, 400, 1);

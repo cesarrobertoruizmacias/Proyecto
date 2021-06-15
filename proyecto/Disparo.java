@@ -42,7 +42,6 @@ public class Disparo extends Actor
         Actor Pez=getOneObjectAtOffset(0,0,Pez.class);
         Submarino boss=(Submarino)getOneIntersectingObject(Submarino.class);
         if(Pez!=null){
-
             Nivel1 nivel1=(Nivel1)getWorld();
             nivel1.puntos.incrementar();
             getWorld().removeObject(Pez);
@@ -75,6 +74,7 @@ public class Disparo extends Actor
             if(nivel3.puntos.obtenerValor() == 1000)
             {
                 getWorld().removeObject(Megalodon);
+                Greenfoot.setWorld(new Resultados());
             }
 
         }

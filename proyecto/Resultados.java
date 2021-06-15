@@ -8,14 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Resultados extends World
 {
-
-    /**
-     * Constructor for objects of class Resultados.
-     * 
-     */
     public Resultados()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        Greenfoot.playSound("win.mp3");
+        addObject(new Back(),31,370);
     }
 }

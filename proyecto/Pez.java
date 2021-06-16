@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.io.FileWriter;
+import java.io.IOException;
 /**
  * Write a description of class pez here.
  * 
@@ -37,7 +38,17 @@ public class Pez extends Actor
             nivel1.vidas.decrementar();
             getWorld().addObject(new Submarino(),50,300);
             if(nivel1.vidas.obtenerValor()==0){
-                Greenfoot.setWorld(new GameOver());    
+
+                try {
+                    FileWriter fw = new FileWriter("prueba.txt");
+
+                    fw.write(nivel1.puntos.obtenerValor()+ " ");
+
+                    fw.close();
+
+                } catch (IOException ex){
+                }
+                Greenfoot.setWorld(new GameOver());
             }
         }
     }

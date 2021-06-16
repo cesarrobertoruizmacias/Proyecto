@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.io.FileWriter;
+import java.io.IOException;
 /**
  * Write a description of class pez here.
  * 
@@ -32,13 +33,22 @@ public class Tiburon extends Actor
 
         Actor Submarino =getOneObjectAtOffset(0,0,Submarino.class);
         if(Submarino!=null){
-            Nivel2 N2 = (Nivel2)getWorld();
+            Nivel2 nivel2 = (Nivel2)getWorld();
             getWorld().removeObject(Submarino);
-            N2.vidas.decrementar();
+            nivel2.vidas.decrementar();
             getWorld().addObject(new Submarino(),50,300);
-            if(N2.vidas.obtenerValor()==0){
+            if(nivel2.vidas.obtenerValor()==0){
+                try {
+                    FileWriter fw = new FileWriter("prueba.txt");
+
+                    fw.write(nivel2.puntos.obtenerValor() + " ");
+
+                    fw.close();
+
+                } catch (IOException ex){
+                }
                 Greenfoot.setWorld(new GameOver());    
-            }
+            }  
         }
     }
 }   

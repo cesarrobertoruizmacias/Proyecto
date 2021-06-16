@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.io.FileWriter;
+import java.io.IOException;
 /**
  * Write a description of class pez here.
  * 
@@ -36,8 +37,18 @@ public class Megalodon extends Actor
             getWorld().removeObject(Submarino);
             nivel3.vidas.decrementar();
             getWorld().addObject(new Submarino(),50,300);
-            if(nivel3.vidas.obtenerValor()==0){
-                Greenfoot.setWorld(new GameOver());    
+            if(nivel3.vidas.obtenerValor()==0){ 
+
+                try {
+                    FileWriter fw = new FileWriter("prueba.txt");
+
+                    fw.write(nivel3.puntos.obtenerValor()+ " ");
+
+                    fw.close();
+
+                } catch (IOException ex){
+                }
+                Greenfoot.setWorld(new GameOver());   
             }
         }
     }

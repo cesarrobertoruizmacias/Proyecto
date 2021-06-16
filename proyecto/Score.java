@@ -1,22 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Score here.
+ * Write a description of class MyWorldScore here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Score extends Button
+public class Score extends World
 {
-    /**
-     * Act - do whatever the Score wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        if (Greenfoot.mouseClicked(this))
-        {
-            Greenfoot.setWorld(new MyWorldScore());
-        }
-    }    
+    public Score()
+    {    
+        super(600, 400, 1);
+        addObject(new Back(),31,370);
+    }
 }
